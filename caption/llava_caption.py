@@ -5,9 +5,7 @@ import json
 from tqdm import tqdm
 import shortuuid
 import sys
-
 sys.path.append('MVP/model')
-
 from model.llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 from model.llava.conversation import conv_templates, SeparatorStyle
 from model.llava.model.builder import load_pretrained_model

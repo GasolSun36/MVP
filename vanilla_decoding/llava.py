@@ -5,20 +5,14 @@ import json
 from tqdm import tqdm
 import shortuuid
 import sys
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 sys.path.append('MVP/model')
-import torch.nn.functional as F
-from model.llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
+from model.llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN
 from model.llava.conversation import conv_templates, SeparatorStyle
 from model.llava.model.builder import load_pretrained_model
 from model.llava.utils import disable_torch_init
 from model.llava.mm_utils import tokenizer_image_token, get_model_name_from_path, KeywordsStoppingCriteria
-import torchvision
 from PIL import Image
 import math
-
 from transformers import set_seed
 
 def split_list(lst, n):

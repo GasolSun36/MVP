@@ -34,7 +34,7 @@ python caption/llava_caption.py \
     --max_new_tokens 512 \
     --num_beams 1 --seed 336
 ```
-This will create a file under the `output` folder that stores all the captions. Of course, you need to execute `(bottom-up, top-down, normal)` separately under the `perspective` parameter.
+This will create a file under the `output` folder that stores all the captions. Of course, you need to execute `(bottom-up, top-down, regular)` separately under the `perspective` parameter.
 
 **We have prepared the caption file and can use it directly in the `output` folder.**
 
@@ -45,7 +45,7 @@ To employ MVP, you can use the following command in `MVP_llava.sh`:
 
 declare -a files=("MVP_llava")
 
-declare -a perspectives=("bottom-up" "top-down" "normal")
+declare -a perspectives=("bottom-up" "top-down" "regular")
 
 declare -a question_files=("coco")
 declare -a question_types=("popular")
@@ -66,7 +66,6 @@ for file in "${files[@]}"; do
           --answers-file "$output_file" \
           --temperature 0.7 \
           --top_p 1.0 --topk 3 \
-          --threshold 0.001 \
           --max_new_tokens 50 \
           --num_beams 1 --seed 336
           1>"$log_file" 2>&1 &
@@ -82,7 +81,6 @@ After that, you can obtain the result files in the `output` folder.
 ### Important arguments
 - `--perspective`: the caption perspective.
 - `--topk`: employ topk's reasoning paths.
-- `--threshold`: If logits is less than this value, filter out current reasoning path in order to speed the inference.
 
 
 ## Evaluation
@@ -93,14 +91,14 @@ python eval/eval_pope.py \
     --gt_files MVP/benchmark/POPE/coco/coco_pope_popular.json \
     --gen_files_bottom_up MVP/output/MVP_llava_bottom-up_coco_popular_pope.jsonl \
     --gen_files_top_down MVP/output/MVP_llava_top-down_coco_popular_pope.jsonl \
-    --gen_files_normal MVP/output/MVP_llava_normal_coco_popular_pope.jsonl \
+    --gen_files_regular MVP/output/MVP_llava_regular_coco_popular_pope.jsonl \
     --a 0.4 --b 0.4 --c 0.2
 ```
 
 ### Important arguments
 - `--a`: the weight of bottom-up path.
 - `--b`: the weight of top-down path.
-- `--c`: the weight of normal path.
+- `--c`: the weight of regular path.
 
 
 ## Experiment Results
@@ -120,28 +118,3 @@ MVP's performance on MME:
 ![image](https://img2.imgtp.com/2024/04/12/RyxiIyea.png)
 ![image](https://img2.imgtp.com/2024/04/12/yGWrU9oL.png)
 
-
-
-## Contributing
-
-MIT License
-
-Copyright (c) [2024] [anonymous]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

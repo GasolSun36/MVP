@@ -165,7 +165,7 @@ if __name__ == "__main__":
     parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--question-file", type=str, default="tables/question.jsonl")
     parser.add_argument("--answers-file", type=str, default="answer.jsonl")
-    parser.add_argument("--perspective", type=str, default="bottom-up")  # bottom-up, top-down, normal
+    parser.add_argument("--perspective", type=str, default="bottom-up")  # bottom-up, top-down, regular
     parser.add_argument("--conv-mode", type=str, default="llava_v1")
     parser.add_argument("--num-chunks", type=int, default=1)
     parser.add_argument("--caption_file", type=str, default="")

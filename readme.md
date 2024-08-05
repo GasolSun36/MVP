@@ -4,7 +4,7 @@ This repository is the official implementation of "Look, Compare, Decide: Allevi
 
 ## Pipeline of MVP
 
-![image](https://img2.imgtp.com/2024/04/12/bGmsicds.png)
+![image](https://github.com/GasolSun36/MVP/blob/main/assets/pipeline.png)
 
 
 ## Requirements
@@ -105,16 +105,18 @@ python eval/eval_pope.py \
 
 MVP's performance on POPE:
 
-![image](https://img2.imgtp.com/2024/04/12/xuzu2nd1.png)
+![image](https://github.com/GasolSun36/MVP/blob/main/assets/experiment_pope.png)
+
 
 MVP's performance on MME:
 
-![image](https://img2.imgtp.com/2024/04/12/vfI5Zjvb.png)
+![image](https://github.com/GasolSun36/MVP/blob/main/assets/experiment_mme.png)
+
 
 
 
 ## Case Study
 
-![image](https://img2.imgtp.com/2024/04/12/RyxiIyea.png)
-![image](https://img2.imgtp.com/2024/04/12/yGWrU9oL.png)
+![image](https://github.com/GasolSun36/MVP/blob/main/assets/case_study.png)
+
 
